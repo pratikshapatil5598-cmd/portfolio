@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pratiksha Patil | AI Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+/* Animated Background */
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 20%, rgba(0,255,255,.15), transparent 30%),
+radial-gradient(circle at 80% 40%, rgba(123,97,255,.15), transparent 30%),
+radial-gradient(circle at 50% 90%, rgba(255,0,255,.1), transparent 30%);
+z-index:-2;
+animation:bgmove 12s infinite alternate;
+}
+
+@keyframes bgmove{
+100%{
+transform:scale(1.2);
+}
+}
+
+/* Loader */
+#loader{
+position:fixed;
+width:100%;
+height:100vh;
+background:#050816;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.loader-circle{
+width:80px;
+height:80px;
+border:5px solid #222;
+border-top:5px solid cyan;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+100%{transform:rotate(360deg);}
+}
+
+header{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.glass{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+padding:40px;
+border-radius:25px;
+border:1px solid rgba(255,255,255,.1);
+max-width:900px;
+}
+
+h1{
+font-size:4rem;
+color:#00e5ff;
+}
+
+.typing{
+font-size:1.5rem;
+margin:15px 0;
+color:#7b61ff;
+height:40px;
+}
+
+.tagline{
+margin:20px 0;
+line-height:1.7;
+}
+
+.btn{
+display:inline-block;
+padding:12px 25px;
+margin:10px;
+background:linear-gradient(45deg,#00e5ff,#7b61ff);
+color:white;
+text-decoration:none;
+border-radius:30px;
+transition:.4s;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+box-shadow:0 0 20px cyan;
+}
+
+.socials a{
+margin:0 10px;
+color:white;
+text-decoration:none;
+}
+
+section{
+padding:80px 10%;
+}
+
+.title{
+text-align:center;
+font-size:2.5rem;
+margin-bottom:50px;
+color:#00e5ff;
+}
+
+.about{
+display:grid;
+grid-template-columns:1fr 2fr;
+gap:40px;
+align-items:center;
+}
+
+.about img{
+width:100%;
+border-radius:20px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:20px;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(0,255,255,.3);
+}
+
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.skill{
+padding:20px;
+text-align:center;
+}
+
+.progress{
+height:10px;
+background:#222;
+border-radius:10px;
+overflow:hidden;
+margin-top:10px;
+}
+
+.progress span{
+display:block;
+height:100%;
+background:linear-gradient(90deg,#00e5ff,#7b61ff);
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.timeline{
+border-left:3px solid cyan;
+padding-left:30px;
+}
+
+.timeline div{
+margin-bottom:30px;
+position:relative;
+}
+
+.timeline div::before{
+content:"";
+position:absolute;
+left:-40px;
+top:5px;
+width:15px;
+height:15px;
+background:cyan;
+border-radius:50%;
+}
+
+.contact form{
+max-width:700px;
+margin:auto;
+}
+
+input,textarea{
+width:100%;
+padding:15px;
+margin:10px 0;
+background:#111;
+border:none;
+border-radius:10px;
+color:white;
+}
+
+button{
+padding:15px;
+width:100%;
+background:linear-gradient(45deg,#00e5ff,#7b61ff);
+border:none;
+border-radius:10px;
+color:white;
+font-size:1rem;
+cursor:pointer;
+}
+
+footer{
+text-align:center;
+padding:30px;
+background:#03050f;
+}
+
+.ai-zone{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.avatar{
+font-size:4rem;
+text-align:center;
+}
+
+@media(max-width:768px){
+
+h1{
+font-size:2.5rem;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div id="loader">
+<div class="loader-circle"></div>
+</div>
+
+<header>
+
+<div class="glass">
+
+<h1>Pratiksha Patil</h1>
+
+<div class="typing">
+<span id="typewriter"></span>
+</div>
+
+<p class="tagline">
+Transforming Ideas into Intelligent Systems Through AI,
+Machine Learning and Modern Software Development.
+</p>
+
+<a href="#" class="btn">Download Resume</a>
+<a href="#contact" class="btn">Contact Me</a>
+
+<div class="socials">
+<a href="https://www.linkedin.com/in/pratiksha-patil-25b4533b0?utm_source=share_via&utm_content=profile&utm_medium=member_android">LinkedIn</a>
+<a href="918459364614">phone.no</a>
+<a href="patilpratiksha256@gmail.com">Email</a>
+</div>
+
+</div>
+
+</header>
+
+<section>
+
+<h2 class="title">About Me</h2>
+
+<div class="about">
+
+<img src="pratiksha.jpg" alt="Profile">
+
+<div>
+
+<h3>Diploma CSE</h3>
+
+<p>
+Student at DKTE'S yashwantrav chavan polytecqnic ichalkaranji
+Passionate about web development.
+</p>
+
+<br>
+
+<p>
+Goal: Build AI-powered solutions that solve real-world
+problems in agriculture, education and automation.
+</p>
+
+<div class="stats">
+
+<div class="card">
+<h3>10+</h3>
+<p>Technologies</p>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">Skills</h2>
+
+<div class="skills">
+
+<div class="card skill">
+java
+<div class="progress"><span style="width:60%"></span></div>
+</div>
+
+<div class="card skill">
+web development
+<div class="progress"><span style="width:85%"></span></div>
+</div>
+
+<div class="card skill">
+Data Science
+<div class="progress"><span style="width:85%"></span></div>
+</div>
+
+<div class="card skill">
+HTML/CSS
+<div class="progress"><span style="width:95%"></span></div>
+</div>
+
+<div class="card skill">
+c++
+<div class="progress"><span style="width:80%"></span></div>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">Projects</h2>
+
+<div class="projects">
+
+<div class="card">
+    <h3>AI Portfolio Website</h3>
+    <p>
+        A modern futuristic portfolio website built using
+        HTML, CSS, and JavaScript featuring glassmorphism,
+        animated backgrounds, typing effects, responsive
+        design, and interactive UI components.
+    </p>
+    <br>
+    <a href="https://your-portfolio-link.com" class="btn" target="_blank">
+        Live Demo
+    </a>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">Experience & Achievements</h2>
+
+<div class="timeline">
+
+<div>
+<h3>Started BTech AIML</h3>
+<p>Beginning of AI Journey</p>
+</div>
+
+<div>
+<h3>Achieved 9+ CGPA</h3>
+<p>Strong Academic Performance</p>
+</div>
+
+<div>
+<h3>Fertilizer Recommendation System</h3>
+<p>AI Agriculture Platform</p>
+</div>
+
+<div>
+<h3>CulturaSim Project</h3>
+<p>Hackathon Innovation</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">Interactive AI Zone</h2>
+
+<div class="ai-zone">
+
+<div class="card">
+<div class="avatar">🤖</div>
+<h3>AI Assistant</h3>
+<p>Future Chatbot Integration</p>
+</div>
+
+<div class="card">
+<h3>Projects</h3>
+<h1>15+</h1>
+</div>
+
+<div class="card">
+<h3>Skills</h3>
+<h1>12+</h1>
+</div>
+
+<div class="card">
+<h3>Achievements</h3>
+<h1>20+</h1>
+</div>
+
+</div>
+
+</section>
+
+<section class="contact" id="contact">
+
+<h2 class="title">Contact Me</h2>
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Email">
+
+<input type="text" placeholder="Phone">
+
+<textarea rows="5" placeholder="Message"></textarea>
+
+<button>Send Message</button>
+
+</form>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 Pratik Patil |
+AI Engineer | Machine Learning Developer
+</p>
+<div class="socials">
+
+<a href="https://www.linkedin.com/in/pratiksha-patil-25b4533b0"
+target="_blank">
+LinkedIn
+</a>
+
+<a href="tel:+918459364614">
+📞 +91 84593 64614
+</a>
+
+<a href="mailto:patilpratiksha256@gmail.com">
+✉️ patilpratiksha256@gmail.com
+</a>
+
+</div>
+
+</footer>
+
+<script>
+
+/* Loader */
+window.onload=function(){
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+},1500);
+}
+
+/* Typing Effect */
+const words=[
+"AI Engineer",
+"Machine Learning Developer",
+"Innovator",
+"Problem Solver"
+];
+
+let i=0;
+let j=0;
+let current="";
+let isDeleting=false;
+
+function type(){
+
+current=words[i];
+
+if(!isDeleting){
+j++;
+}else{
+j--;
+}
+
+document.getElementById("typewriter").innerHTML=
+current.substring(0,j);
+
+if(!isDeleting && j===current.length){
+isDeleting=true;
+setTimeout(type,1200);
+return;
+}
+
+if(isDeleting && j===0){
+isDeleting=false;
+i=(i+1)%words.length;
+}
+
+setTimeout(type,isDeleting?50:120);
+}
+
+type();
+
+</script>
+
+</body>
+</html>
